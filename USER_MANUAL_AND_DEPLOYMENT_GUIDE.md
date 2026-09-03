@@ -180,7 +180,7 @@ To resolve `abstract-nnp` from or publish artifacts to remote registries, config
 
 ### Configuring settings.xml
 
-A reference configuration template is provided in [.m2/settings.xml](.m2/settings.xml). Copy or merge it with your user settings:
+Configure your local Maven user settings (`settings.xml`):
 
 - **Linux / macOS**: `~/.m2/settings.xml`
 - **Windows**: `%USERPROFILE%\.m2\settings.xml`
@@ -319,7 +319,7 @@ deploy-package:
   stage: deploy
   image: maven:3.9.6-eclipse-temurin-21
   script:
-    - mvn clean deploy -Pgitlab-maven -s .m2/settings.xml -DskipTests
+    - mvn clean deploy -Pgitlab-maven -DskipTests
   only:
     - main
     - tags

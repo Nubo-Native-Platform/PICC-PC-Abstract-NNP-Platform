@@ -1,5 +1,4 @@
-# Abstract NNP Platform (`abstract-nnp`)
-
+# PICC-PC-Abstract-NNP-Platform
 [![Java Version](https://img.shields.io/badge/Java-21%20LTS-ED8B00?logo=openjdk&logoColor=white)](https://openjdk.org/projects/jdk/21/)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.4-6DB33F?logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
 [![Spring Cloud](https://img.shields.io/badge/Spring%20Cloud-2025.0.0-6DB33F?logo=spring&logoColor=white)](https://spring.io/projects/spring-cloud)
@@ -190,14 +189,8 @@ mvn clean install
 ```
 PICC-PC-Abstract-NNP-Platform/
 ├── .github/
-│   ├── ISSUE_TEMPLATE/
-│   │   ├── bug_report.md                      # Standardized bug reporting template
-│   │   └── feature_request.md                 # Dependency & feature proposal template
-│   ├── workflows/
-│   │   └── ci-cd.yml                          # GitHub Actions CI/CD automation
-│   └── PULL_REQUEST_TEMPLATE.md               # Pull request submission checklist
-├── .m2/
-│   └── settings.xml                           # Reference Maven configuration template
+│   └── workflows/
+│       └── ci-cd.yml                          # GitHub Actions CI/CD automation
 ├── .gitignore                                 # Git ignore rules
 ├── pom.xml                                    # Root Parent POM & Dependency Management
 ├── README.md                                  # Project overview and quick start guide
