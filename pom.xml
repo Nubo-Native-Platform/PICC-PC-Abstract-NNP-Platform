@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.5.4</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+
+	<groupId>com.nubons</groupId>
+	<artifactId>abstract-nnp</artifactId>
+	<version>1.0.0</version>
+	<packaging>pom</packaging>
+
+	<name>abstract-nnp</name>
+	<description>Enterprise Parent POM and Bill of Materials (BOM) for Cloud-Native Microservices in Nubo Native Platform (NNP)</description>
+	<url>https://github.com/nubons/PICC-PC-Abstract-NNP-Platform</url>
+
+	<licenses>
+		<license>
+			<name>Apache License, Version 2.0</name>
+			<url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<developers>
+		<developer>
+			<id>nnp-platform-maintainers</id>
+			<name>Nubo Native Platform Maintainers</name>
+			<email>contribution@nubons.com</email>
+			<organization>Nubo Native Platform</organization>
+			<organizationUrl>https://www.nubons.com</organizationUrl>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:git://github.com/nubons/PICC-PC-Abstract-NNP-Platform.git</connection>
+		<developerConnection>scm:git:ssh://github.com:nubons/PICC-PC-Abstract-NNP-Platform.git</developerConnection>
+		<url>https://github.com/nubons/PICC-PC-Abstract-NNP-Platform</url>
+	</scm>
+
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/nubons/PICC-PC-Abstract-NNP-Platform/issues</url>
+	</issueManagement>
+
+	<properties>
+		<!-- ============================================== -->
+		<!-- JDK & Encoding Settings                        -->
+		<!-- ============================================== -->
+		<java.version>21</java.version>
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.target>21</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+		<!-- ============================================== -->
+		<!-- Core Ecosystem Versions                        -->
+		<!-- ============================================== -->
+		<spring.cloud.version>2025.0.0</spring.cloud.version>
+		<camel-spring-boot-bom.version>4.12.0</camel-spring-boot-bom.version>
+
+		<!-- ============================================== -->
+		<!-- Data & Persistence                             -->
+		<!-- ============================================== -->
+		<postgresql.version>42.7.7</postgresql.version>
+		<hypersistence-utils-hibernate-62.version>3.9.4</hypersistence-utils-hibernate-62.version>
+
+		<!-- ============================================== -->
+		<!-- API & Documentation (OpenAPI 3.0 / Swagger UI) -->
+		<!-- ============================================== -->
+		<springdoc-openapi-ui.version>2.8.9</springdoc-openapi-ui.version>
+
+		<!-- ============================================== -->
+		<!-- Security & Validation (Jakarta EE Standards)   -->
+		<!-- ============================================== -->
+		<java-jwt.version>4.5.0</java-jwt.version>
+		<fusionauth.java.client.version>1.30.1</fusionauth.java.client.version>
+		<jakarta.validation-api.version>3.1.1</jakarta.validation-api.version>
+
+		<!-- ============================================== -->
+		<!-- Utilities & Helpers                            -->
+		<!-- ============================================== -->
+		<commons.lang3.version>3.17.0</commons.lang3.version>
+		<commons.text.version>1.13.1</commons.text.version>
+		<commons.io.version>2.19.0</commons.io.version>
+		<commons-fileupload.version>1.6.0</commons-fileupload.version>
+		<modelmapper.version>3.2.4</modelmapper.version>
+		<hazelcast.version>5.5.0</hazelcast.version>
+		<snakeyaml.version>2.4</snakeyaml.version>
+		<json.version>20250517</json.version>
+		<jsoup.version>1.21.1</jsoup.version>
+
+		<!-- ============================================== -->
+		<!-- Code Generation & AST Tooling                  -->
+		<!-- ============================================== -->
+		<javapoet.version>1.13.0</javapoet.version>
+		<jsonschema2pojo-core.version>1.2.2</jsonschema2pojo-core.version>
+		<google-java-format.version>1.27.0</google-java-format.version>
+		<eclipse-jgit.version>7.3.0.202506031305-r</eclipse-jgit.version>
+		<easywsdl-wsdl.version>2.8.0</easywsdl-wsdl.version>
+
+		<!-- ============================================== -->
+		<!-- NNP Custom LCNC / Microservice Modules         -->
+		<!-- ============================================== -->
+		<framework.version>1.0.2</framework.version>
+		<resterrorhandler.version>1.0.1</resterrorhandler.version>
+		<mapper.factory.version>1.0.3</mapper.factory.version>
+		<errorhandler.version>1.0.1</errorhandler.version>
+		<entitygenerator.version>1.0.4</entitygenerator.version>
+
+		<!-- ============================================== -->
+		<!-- Maven Plugin Versions                          -->
+		<!-- ============================================== -->
+		<maven.compiler.plugin.version>3.14.0</maven.compiler.plugin.version>
+		<maven-source-plugin.version>3.3.1</maven-source-plugin.version>
+		<maven-javadoc-plugin.version>3.11.2</maven-javadoc-plugin.version>
+		<maven-gpg-plugin.version>3.2.7</maven-gpg-plugin.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Milestones</name>
+			<url>https://repo.spring.io/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>central</id>
+			<name>Maven Central</name>
+			<url>https://repo.maven.apache.org/maven2</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- Spring Cloud Dependencies BOM -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring.cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- Apache Camel Spring Boot BOM -->
+			<dependency>
+				<groupId>org.apache.camel.springboot</groupId>
+				<artifactId>camel-spring-boot-bom</artifactId>
+				<version>${camel-spring-boot-bom.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- Database & Persistence -->
+			<dependency>
+				<groupId>org.postgresql</groupId>
+				<artifactId>postgresql</artifactId>
+				<version>${postgresql.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.hypersistence</groupId>
+				<artifactId>hypersistence-utils-hibernate-62</artifactId>
+				<version>${hypersistence-utils-hibernate-62.version}</version>
+			</dependency>
+
+			<!-- API Documentation & OpenAPI 3.0 (Jakarta / Spring Boot 3.x Standard) -->
+			<dependency>
+				<groupId>org.springdoc</groupId>
+				<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+				<version>${springdoc-openapi-ui.version}</version>
+			</dependency>
+
+			<!-- Validation (Jakarta EE 10 Standard for Spring Boot 3.x) -->
+			<dependency>
+				<groupId>jakarta.validation</groupId>
+				<artifactId>jakarta.validation-api</artifactId>
+				<version>${jakarta.validation-api.version}</version>
+			</dependency>
+
+			<!-- Apache Commons Utilities -->
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>${commons.lang3.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-text</artifactId>
+				<version>${commons.text.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-io</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${commons.io.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-fileupload</groupId>
+				<artifactId>commons-fileupload</artifactId>
+				<version>${commons-fileupload.version}</version>
+			</dependency>
+
+			<!-- Mapping & Transformation -->
+			<dependency>
+				<groupId>org.modelmapper</groupId>
+				<artifactId>modelmapper</artifactId>
+				<version>${modelmapper.version}</version>
+			</dependency>
+
+			<!-- Distributed Caching -->
+			<dependency>
+				<groupId>com.hazelcast</groupId>
+				<artifactId>hazelcast</artifactId>
+				<version>${hazelcast.version}</version>
+			</dependency>
+
+			<!-- Security & Auth -->
+			<dependency>
+				<groupId>io.fusionauth</groupId>
+				<artifactId>fusionauth-java-client</artifactId>
+				<version>${fusionauth.java.client.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.auth0</groupId>
+				<artifactId>java-jwt</artifactId>
+				<version>${java-jwt.version}</version>
+			</dependency>
+
+			<!-- Code Generation & AST Tools -->
+			<dependency>
+				<groupId>com.squareup</groupId>
+				<artifactId>javapoet</artifactId>
+				<version>${javapoet.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jsonschema2pojo</groupId>
+				<artifactId>jsonschema2pojo-core</artifactId>
+				<version>${jsonschema2pojo-core.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.googlejavaformat</groupId>
+				<artifactId>google-java-format</artifactId>
+				<version>${google-java-format.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.jgit</groupId>
+				<artifactId>org.eclipse.jgit</artifactId>
+				<version>${eclipse-jgit.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.ow2.easywsdl</groupId>
+				<artifactId>easywsdl-wsdl</artifactId>
+				<version>${easywsdl-wsdl.version}</version>
+			</dependency>
+
+			<!-- Parsing & Data Formats -->
+			<dependency>
+				<groupId>org.yaml</groupId>
+				<artifactId>snakeyaml</artifactId>
+				<version>${snakeyaml.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.json</groupId>
+				<artifactId>json</artifactId>
+				<version>${json.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.jsoup</groupId>
+				<artifactId>jsoup</artifactId>
+				<version>${jsoup.version}</version>
+			</dependency>
+
+			<!-- Custom Platform Modules -->
+			<dependency>
+				<groupId>com.nubons.nmp.lcnc.codegen.errorhandler</groupId>
+				<artifactId>resterrorhandler</artifactId>
+				<version>${resterrorhandler.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.nubons.nmp.lcnc.codegen</groupId>
+				<artifactId>mapperfactory</artifactId>
+				<version>${mapper.factory.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.nubons.nmp.lcnc.codegen</groupId>
+				<artifactId>entitygenerator</artifactId>
+				<version>${entitygenerator.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.nubons.nmp.lcnc.codegen.errorhandler</groupId>
+				<artifactId>errorhandler</artifactId>
+				<version>${errorhandler.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- Compiler Plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven.compiler.plugin.version}</version>
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+						<release>${java.version}</release>
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>
+				</plugin>
+				<!-- Source Plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>${maven-source-plugin.version}</version>
+					<executions>
+						<execution>
+							<id>attach-sources</id>
+							<goals>
+								<goal>jar-no-fork</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+				<!-- Javadoc Plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>${maven-javadoc-plugin.version}</version>
+					<configuration>
+						<encoding>${project.build.sourceEncoding}</encoding>
+						<doclint>none</doclint>
+					</configuration>
+					<executions>
+						<execution>
+							<id>attach-javadocs</id>
+							<goals>
+								<goal>jar</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+	<profiles>
+		<!-- Profile for publishing to GitHub Packages -->
+		<profile>
+			<id>github-packages</id>
+			<distributionManagement>
+				<repository>
+					<id>github</id>
+					<name>GitHub Packages</name>
+					<url>https://maven.pkg.github.com/nubons/PICC-PC-Abstract-NNP-Platform</url>
+				</repository>
+				<snapshotRepository>
+					<id>github</id>
+					<name>GitHub Packages Snapshots</name>
+					<url>https://maven.pkg.github.com/nubons/PICC-PC-Abstract-NNP-Platform</url>
+				</snapshotRepository>
+			</distributionManagement>
+		</profile>
+
+		<!-- Profile for publishing to Maven Central via OSSRH / Sonatype -->
+		<profile>
+			<id>ossrh</id>
+			<distributionManagement>
+				<repository>
+					<id>ossrh</id>
+					<name>Central Repository OSSRH</name>
+					<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+				</repository>
+				<snapshotRepository>
+					<id>ossrh</id>
+					<name>Central Repository Snapshots</name>
+					<url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+				</snapshotRepository>
+			</distributionManagement>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>${maven-gpg-plugin.version}</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<!-- Profile for GitLab CI / Packages -->
+		<profile>
+			<id>gitlab-maven</id>
+			<distributionManagement>
+				<repository>
+					<id>gitlab-maven</id>
+					<url>${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/maven</url>
+				</repository>
+				<snapshotRepository>
+					<id>gitlab-maven</id>
+					<url>${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/maven</url>
+				</snapshotRepository>
+			</distributionManagement>
+		</profile>
+	</profiles>
+</project>
