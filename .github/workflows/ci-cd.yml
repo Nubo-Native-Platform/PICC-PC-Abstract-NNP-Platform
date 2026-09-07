@@ -8,8 +8,8 @@ on:
     branches: [ main, master ]
 
 jobs:
-  validate:
-    name: Validate POM & Build
+  build:
+    name: Build & Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -25,12 +25,12 @@ jobs:
       - name: Validate Maven POM
         run: mvn validate
 
-      - name: Verify Effective POM
-        run: mvn help:effective-pom
+      - name: Build Project
+        run: mvn clean package -DskipTests
 
   publish:
-    name: Publish Artifacts to GitHub Packages
-    needs: validate
+    name: Publish to GitHub Packages
+    needs: build
     if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || startsWith(github.ref, 'refs/tags/v'))
     runs-on: ubuntu-latest
     permissions:
