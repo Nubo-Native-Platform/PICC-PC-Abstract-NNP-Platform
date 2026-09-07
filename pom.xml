@@ -18,7 +18,7 @@
 
 	<name>abstract-nnp</name>
 	<description>Enterprise Parent POM and Bill of Materials (BOM) for Cloud-Native Microservices in Nubo Native Platform (NNP)</description>
-	<url>https://github.com/nubons/PICC-PC-Abstract-NNP-Platform</url>
+	<url>https://github.com/Nubo-Native-Platform/PICC-PC-Abstract-NNP-Platform</url>
 
 	<licenses>
 		<license>
@@ -39,14 +39,14 @@
 	</developers>
 
 	<scm>
-		<connection>scm:git:git://github.com/nubons/PICC-PC-Abstract-NNP-Platform.git</connection>
-		<developerConnection>scm:git:ssh://github.com:nubons/PICC-PC-Abstract-NNP-Platform.git</developerConnection>
-		<url>https://github.com/nubons/PICC-PC-Abstract-NNP-Platform</url>
+		<connection>scm:git:git://github.com/Nubo-Native-Platform/PICC-PC-Abstract-NNP-Platform.git</connection>
+		<developerConnection>scm:git:ssh://github.com:Nubo-Native-Platform/PICC-PC-Abstract-NNP-Platform.git</developerConnection>
+		<url>https://github.com/Nubo-Native-Platform/PICC-PC-Abstract-NNP-Platform</url>
 	</scm>
 
 	<issueManagement>
 		<system>GitHub Issues</system>
-		<url>https://github.com/nubons/PICC-PC-Abstract-NNP-Platform/issues</url>
+		<url>https://github.com/Nubo-Native-Platform/PICC-PC-Abstract-NNP-Platform/issues</url>
 	</issueManagement>
 
 	<properties>
@@ -363,12 +363,12 @@
 				<repository>
 					<id>github</id>
 					<name>GitHub Packages</name>
-					<url>https://maven.pkg.github.com/nubons/PICC-PC-Abstract-NNP-Platform</url>
+					<url>https://maven.pkg.github.com/Nubo-Native-Platform/PICC-PC-Abstract-NNP-Platform</url>
 				</repository>
 				<snapshotRepository>
 					<id>github</id>
 					<name>GitHub Packages Snapshots</name>
-					<url>https://maven.pkg.github.com/nubons/PICC-PC-Abstract-NNP-Platform</url>
+					<url>https://maven.pkg.github.com/Nubo-Native-Platform/PICC-PC-Abstract-NNP-Platform</url>
 				</snapshotRepository>
 			</distributionManagement>
 		</profile>
