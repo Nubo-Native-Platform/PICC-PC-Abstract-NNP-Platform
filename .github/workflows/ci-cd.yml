@@ -27,7 +27,8 @@ jobs:
 
       - name: Build Project
         run: mvn clean package -DskipTests
-   publish:
+
+  publish:
     name: Publish public Maven repo (GitHub Pages)
     needs: build
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
